@@ -57,4 +57,7 @@ fi
 echo "==> Deploying service $UUID..."
 DEPLOY_RESPONSE=$(curl -s -X POST -H "Authorization: Bearer $COOLIFY_TOKEN" "$COOLIFY_URL/api/v1/deploy?uuid=$UUID")
 echo "Deploy response: $DEPLOY_RESPONSE"
+
+echo "==> Waiting for Coolify to pull new image..."
+sleep 15
 echo "==> Done! https://converter.lab115.com"
