@@ -11,8 +11,20 @@ echo "==> Checking existing services..."
 
 LIST=$(curl -s -H "Authorization: Bearer $COOLIFY_TOKEN" "$COOLIFY_URL/api/v1/services")
 
-# Find any service named "unit-converter-website"
-UUID=$(echo "$LIST" | grep -oP '"name":"unit-converter-website"[^}]*' | grep -oP '"uuid":"[^"]*"' | cut -d'"' -f4 | head -1 || true)
+# Use Python to parse JSON — reliable, handles any field order
+UUID=$(python3 -c "
+import sys, json
+try:
+    services = json.loads(sys.stdin.read())
+    if isinstance(services, list):
+        for s in services:
+            if s.get('name') == 'unit-converter-website':
+                print(s.get('uuid', ''))
+                sys.exit(0)
+except:
+    pass
+print('')
+" <<< "$LIST")
 
 if [ -z "$UUID" ]; then
   echo "==> No existing service found, creating new one..."
@@ -47,7 +59,13 @@ YAML
     "$COOLIFY_URL/api/v1/services" \
     -d "{\"project_uuid\":\"$COOLIFY_PROJECT\",\"server_uuid\":\"$COOLIFY_SERVER\",\"environment_name\":\"production\",\"docker_compose_raw\":\"$B64\",\"name\":\"unit-converter-website\"}")
   echo "Create response: $RESPONSE"
-  UUID=$(echo "$RESPONSE" | grep -o '"uuid":"[^"]*"' | cut -d'"' -f4 | head -1)
+  UUID=$(echo "$RESPONSE" | python3 -c "
+import sys, json
+try:
+    print(json.load(sys.stdin).get('uuid', ''))
+except:
+    pass
+")
   echo "New UUID: $UUID"
   sleep 5
 else
