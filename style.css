@@ -139,6 +139,107 @@ body {
 .quick-table tr:last-child td { border-bottom: none; }
 .quick-table tr:hover td { background: var(--surface-hover); }
 
+/* ─── Section Title ─── */
+.section-title {
+  font-size: 0.9rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--text-dim);
+  margin-top: 2rem;
+}
+
+/* ─── All Units Grid ─── */
+.all-units-section { margin-top: 1.5rem; }
+
+.all-units-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 0.5rem;
+}
+
+.unit-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: border-color 0.2s, background 0.2s;
+}
+.unit-card:hover {
+  border-color: var(--accent);
+  background: rgba(108,92,231,0.06);
+}
+.unit-card-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  word-break: break-all;
+  text-align: center;
+}
+.unit-card-label {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  margin-top: 0.2rem;
+  text-align: center;
+}
+
+/* ─── Real-World Visualization ─── */
+.visual-section { margin-top: 1.5rem; }
+
+.vis-section {
+  animation: fadeIn 0.3s ease;
+}
+
+.vis-title {
+  font-size: 0.9rem; font-weight: 600; margin-bottom: 0.75rem;
+  color: var(--text-dim);
+}
+
+.vis-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+
+.vis-card {
+  background: linear-gradient(135deg, rgba(108,92,231,0.06), rgba(95,142,247,0.06));
+  border: 1px solid rgba(108,92,231,0.15);
+  border-radius: var(--radius);
+  padding: 1rem;
+  text-align: center;
+  transition: all 0.2s;
+}
+.vis-card:hover {
+  border-color: var(--accent);
+  background: linear-gradient(135deg, rgba(108,92,231,0.1), rgba(95,142,247,0.1));
+  transform: translateY(-1px);
+}
+
+.vis-icon {
+  font-size: 1.8rem;
+  margin-bottom: 0.4rem;
+  line-height: 1.2;
+}
+
+.vis-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.vis-hint {
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  margin-top: 0.3rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 /* ─── SEO Content ─── */
 .seo-content { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
 .seo-content h2 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.75rem; }

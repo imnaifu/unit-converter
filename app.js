@@ -104,6 +104,183 @@ const CATEGORIES = [
   }
 ];
 
+// ─── Real-World Visual Comparisons ───
+// Each entry: { unitId, atValue, label, emoji? }
+// The closest match to the user's input is shown.
+const REAL_WORLD = {
+  weight: [
+    { unitId: 'g',  atValue: 1,    label: 'a paperclip 📎' },
+    { unitId: 'g',  atValue: 28,   label: 'a slice of bread 🍞' },
+    { unitId: 'g',  atValue: 100,  label: 'a medium apple 🍎' },
+    { unitId: 'g',  atValue: 150,  label: 'a small potato 🥔' },
+    { unitId: 'g',  atValue: 200,  label: 'a cup of water 🥛' },
+    { unitId: 'g',  atValue: 250,  label: 'a cup of flour' },
+    { unitId: 'g',  atValue: 300,  label: 'a can of soda 🥫' },
+    { unitId: 'g',  atValue: 500,  label: 'a loaf of bread 🍞' },
+    { unitId: 'g',  atValue: 454,  label: '1 lb = a small pineapple 🍍' },
+    { unitId: 'kg', atValue: 1,    label: 'a liter of water 💧' },
+    { unitId: 'kg', atValue: 2.5,  label: 'a laptop computer 💻' },
+    { unitId: 'kg', atValue: 4.5,  label: 'a small cat 🐱' },
+    { unitId: 'kg', atValue: 10,   label: 'a bowling ball 🎳' },
+    { unitId: 'kg', atValue: 25,   label: 'a car tire 🛞' },
+    { unitId: 'kg', atValue: 70,   label: 'an average adult 👤' },
+    { unitId: 'kg', atValue: 200,  label: 'a grand piano 🎹' },
+    { unitId: 't',  atValue: 1,    label: 'a small car 🚗' },
+    { unitId: 't',  atValue: 5,    label: 'an elephant 🐘' },
+    { unitId: 't',  atValue: 80,   label: 'a blue whale 🐋' },
+    { unitId: 'lb', atValue: 0.25, label: 'a stick of butter 🧈' },
+    { unitId: 'lb', atValue: 0.5,  label: 'a grapefruit 🍊' },
+    { unitId: 'lb', atValue: 1,    label: 'a small pineapple or 2 cups of sugar 🍍' },
+    { unitId: 'lb', atValue: 3,    label: 'a standard bag of apples 🛍️' },
+    { unitId: 'lb', atValue: 10,   label: 'a small dog 🐕' },
+    { unitId: 'oz', atValue: 1,    label: 'a slice of bread 🍞' },
+    { unitId: 'oz', atValue: 3.5,  label: 'a chocolate bar 🍫' },
+    { unitId: 'oz', atValue: 8,    label: 'a cup of water 🥤' },
+    { unitId: 'oz', atValue: 12,   label: 'a can of soda 🥫' },
+    { unitId: 'oz', atValue: 16,   label: '1 lb — a small steak 🥩' },
+  ],
+  length: [
+    { unitId: 'mm', atValue: 1,    label: 'a grain of sand' },
+    { unitId: 'mm', atValue: 10,   label: 'a fingernail thickness 💅' },
+    { unitId: 'cm', atValue: 1,    label: 'a fingernail width' },
+    { unitId: 'cm', atValue: 2.5,  label: '1 inch' },
+    { unitId: 'cm', atValue: 10,   label: 'a smartphone width 📱' },
+    { unitId: 'cm', atValue: 30,   label: 'a ruler 📏' },
+    { unitId: 'm',  atValue: 1,    label: 'a guitar 🎸' },
+    { unitId: 'm',  atValue: 1.8,  label: 'average human height 👤' },
+    { unitId: 'm',  atValue: 3,    label: 'a compact car 🚗' },
+    { unitId: 'm',  atValue: 9,    label: 'a pickup truck 🛻' },
+    { unitId: 'km', atValue: 1,    label: 'a 12-minute walk 🚶' },
+    { unitId: 'km', atValue: 5,    label: 'a 5K run 🏃' },
+    { unitId: 'km', atValue: 42,   label: 'a marathon 🏅' },
+    { unitId: 'km', atValue: 100,  label: 'a 1-hour drive 🚗' },
+    { unitId: 'mi', atValue: 1,    label: 'a 15-minute walk 🚶' },
+    { unitId: 'mi', atValue: 26.2, label: 'a marathon 🏅' },
+    { unitId: 'ft', atValue: 1,    label: 'a ruler 📏' },
+    { unitId: 'ft', atValue: 5.5,  label: 'a door height 🚪' },
+    { unitId: 'ft', atValue: 10,   label: 'a basketball hoop 🏀' },
+    { unitId: 'in', atValue: 1,    label: 'a thumb width 👍' },
+    { unitId: 'in', atValue: 8.5,  label: 'a sheet of paper (width) 📄' },
+    { unitId: 'in', atValue: 11,   label: 'a sheet of paper (height) 📄' },
+  ],
+  volume: [
+    { unitId: 'mL',  atValue: 1,    label: 'a drop of water 💧' },
+    { unitId: 'mL',  atValue: 5,    label: 'a teaspoon 🥄' },
+    { unitId: 'mL',  atValue: 15,   label: 'a tablespoon 🥄' },
+    { unitId: 'mL',  atValue: 30,   label: 'a shot glass 🥃' },
+    { unitId: 'mL',  atValue: 250,  label: 'a coffee mug ☕' },
+    { unitId: 'mL',  atValue: 330,  label: 'a can of soda 🥫' },
+    { unitId: 'mL',  atValue: 355,  label: 'a can of beer 🍺' },
+    { unitId: 'mL',  atValue: 500,  label: 'a water bottle 🧴' },
+    { unitId: 'L',   atValue: 1,    label: 'a standard water bottle 💧' },
+    { unitId: 'L',   atValue: 2,    label: 'a large soda bottle 🥤' },
+    { unitId: 'L',   atValue: 4,    label: 'a car oil change 🛢️' },
+    { unitId: 'L',   atValue: 50,   label: 'a bathtub 🛁' },
+    { unitId: 'L',   atValue: 200,  label: 'a rain barrel 🌧️' },
+    { unitId: 'gal', atValue: 1,    label: 'a milk jug 🥛' },
+    { unitId: 'gal', atValue: 5,    label: 'a fish tank 🐠' },
+    { unitId: 'gal', atValue: 15,   label: 'a car gas tank ⛽' },
+    { unitId: 'cup', atValue: 1,    label: 'a coffee mug ☕' },
+    { unitId: 'tsp', atValue: 1,    label: 'a pinch of salt 🧂' },
+    { unitId: 'tbsp',atValue: 1,    label: 'a spoonful of medicine 💊' },
+  ],
+  temperature: [
+    { unitId: 'C', atValue: -18,  label: 'freezer temperature ❄️' },
+    { unitId: 'C', atValue: 0,    label: 'water freezes 🧊' },
+    { unitId: 'C', atValue: 4,    label: 'refrigerator 🧊' },
+    { unitId: 'C', atValue: 20,   label: 'room temperature 🏠' },
+    { unitId: 'C', atValue: 25,   label: 'warm summer day ☀️' },
+    { unitId: 'C', atValue: 37,   label: 'human body temperature 🌡️' },
+    { unitId: 'C', atValue: 40,   label: 'hot bath 🛀' },
+    { unitId: 'C', atValue: 60,   label: 'hot coffee ☕' },
+    { unitId: 'C', atValue: 100,  label: 'water boils 💨' },
+    { unitId: 'C', atValue: 180,  label: 'oven for baking 🍪' },
+    { unitId: 'C', atValue: 220,  label: 'oven for pizza 🍕' },
+    { unitId: 'F', atValue: 0,    label: 'bitter cold day 🥶' },
+    { unitId: 'F', atValue: 32,   label: 'water freezes 🧊' },
+    { unitId: 'F', atValue: 68,   label: 'room temperature 🏠' },
+    { unitId: 'F', atValue: 98.6, label: 'human body temperature 🌡️' },
+    { unitId: 'F', atValue: 212,  label: 'water boils 💨' },
+  ],
+  area: [
+    { unitId: 'm2',  atValue: 1,    label: 'a yoga mat 🧘' },
+    { unitId: 'm2',  atValue: 10,   label: 'a parking space 🅿️' },
+    { unitId: 'm2',  atValue: 20,   label: 'a shipping container 📦' },
+    { unitId: 'm2',  atValue: 100,  label: 'a tennis court 🎾' },
+    { unitId: 'ha',  atValue: 1,    label: 'a soccer field ⚽' },
+    { unitId: 'ha',  atValue: 2,    label: 'a football field 🏈' },
+    { unitId: 'ac',  atValue: 1,    label: 'a football field 🏈' },
+    { unitId: 'ft2', atValue: 1,    label: 'a sheet of paper 📄' },
+    { unitId: 'ft2', atValue: 200,  label: 'a small apartment 🏠' },
+    { unitId: 'ft2', atValue: 500,  label: 'a studio apartment 🏢' },
+    { unitId: 'ft2', atValue: 1000, label: 'a small house 🏡' },
+    { unitId: 'ft2', atValue: 2500, label: 'a family house 🏠' },
+    { unitId: 'km2', atValue: 1,    label: 'a small town 🏘️' },
+    { unitId: 'mi2', atValue: 1,    label: 'a small city 🏙️' },
+  ],
+  speed: [
+    { unitId: 'kmh', atValue: 5,    label: 'walking pace 🚶' },
+    { unitId: 'kmh', atValue: 15,   label: 'bicycle 🚲' },
+    { unitId: 'kmh', atValue: 30,   label: 'city driving 🏙️' },
+    { unitId: 'kmh', atValue: 60,   label: 'highway driving 🛣️' },
+    { unitId: 'kmh', atValue: 100,  label: 'fast highway 🏎️' },
+    { unitId: 'kmh', atValue: 300,  label: 'bullet train 🚄' },
+    { unitId: 'kmh', atValue: 800,  label: 'passenger plane ✈️' },
+    { unitId: 'mph', atValue: 15,   label: 'neighborhood driving 🏡' },
+    { unitId: 'mph', atValue: 30,   label: 'city driving 🏙️' },
+    { unitId: 'mph', atValue: 55,   label: 'highway cruising 🛣️' },
+    { unitId: 'mph', atValue: 70,   label: 'interstate driving 🛣️' },
+    { unitId: 'mph', atValue: 100,  label: 'fast sports car 🏎️' },
+    { unitId: 'mph', atValue: 500,  label: 'passenger plane ✈️' },
+    { unitId: 'mps', atValue: 1,    label: 'walking pace 🚶' },
+    { unitId: 'mps', atValue: 10,   label: 'sprinting 🏃' },
+    { unitId: 'mps', atValue: 340,  label: 'speed of sound (Mach 1) ✈️' },
+    { unitId: 'kn',  atValue: 10,   label: 'leisure boat 🛥️' },
+    { unitId: 'kn',  atValue: 30,   label: 'speed boat 🚤' },
+    { unitId: 'kn',  atValue: 500,  label: 'jet plane ✈️' },
+  ],
+  time: [
+    { unitId: 's',   atValue: 1,    label: 'a heartbeat 💓' },
+    { unitId: 's',   atValue: 60,   label: '1 minute — a short song 🎵' },
+    { unitId: 'min', atValue: 5,    label: 'boil an egg 🥚' },
+    { unitId: 'min', atValue: 15,   label: 'a short break ☕' },
+    { unitId: 'min', atValue: 30,   label: 'a TV show episode 📺' },
+    { unitId: 'min', atValue: 60,   label: 'a yoga class 🧘' },
+    { unitId: 'h',   atValue: 1,    label: 'a lunch break 🍽️' },
+    { unitId: 'h',   atValue: 2,    label: 'a movie 🎬' },
+    { unitId: 'h',   atValue: 8,    label: 'a work day 💼' },
+    { unitId: 'h',   atValue: 24,   label: 'a full day 🌅' },
+    { unitId: 'd',   atValue: 7,    label: 'a week 📅' },
+    { unitId: 'd',   atValue: 30,   label: 'a month 🗓️' },
+    { unitId: 'd',   atValue: 365,  label: 'a year 🎂' },
+    { unitId: 'wk',  atValue: 1,    label: 'a work week 💼' },
+    { unitId: 'wk',  atValue: 2,    label: 'a vacation 🏖️' },
+    { unitId: 'mo',  atValue: 9,    label: 'a pregnancy 🤰' },
+    { unitId: 'yr',  atValue: 1,    label: 'a full orbit around the sun 🌍' },
+    { unitId: 'yr',  atValue: 5,    label: 'between presidential elections 🗳️' },
+    { unitId: 'yr',  atValue: 18,   label: 'coming of age 🎂' },
+    { unitId: 'yr',  atValue: 80,   label: 'a human lifespan 👴' },
+  ],
+  data: [
+    { unitId: 'B',  atValue: 1,     label: 'a single character 🔤' },
+    { unitId: 'B',  atValue: 100,   label: 'a short text message 💬' },
+    { unitId: 'KB', atValue: 1,     label: 'a small text file 📄' },
+    { unitId: 'KB', atValue: 100,   label: 'a scanned page 📃' },
+    { unitId: 'MB', atValue: 1,     label: 'a high-res photo 📷' },
+    { unitId: 'MB', atValue: 3,     label: 'a 3-minute MP3 song 🎵' },
+    { unitId: 'MB', atValue: 25,    label: 'a 5-minute YouTube video 📹' },
+    { unitId: 'MB', atValue: 100,   label: 'a smartphone app 📱' },
+    { unitId: 'GB', atValue: 1,     label: 'a 2-hour movie 🎬' },
+    { unitId: 'GB', atValue: 8,     label: 'a CD-ROM 💿' },
+    { unitId: 'GB', atValue: 25,    label: 'a Blu-ray movie 🎞️' },
+    { unitId: 'GB', atValue: 128,   label: 'a phone storage 📱' },
+    { unitId: 'TB', atValue: 1,     label: '500 hours of video 📺' },
+    { unitId: 'TB', atValue: 4,     label: 'a portable hard drive 💾' },
+    { unitId: 'TB', atValue: 10,    label: 'a desktop computer backup 💻' },
+    { unitId: 'PB', atValue: 1,     label: '500 billion pages of text 📚' },
+  ]
+};
+
 // ─── State ───
 let currentCategory = 'length';
 let fromUnit = 'm';
@@ -122,7 +299,8 @@ const copyBtn = el('copyBtn');
 const resultRow = el('resultRow');
 const resultText = el('resultText');
 const formulaBox = el('formulaBox');
-const refTable = el('refTable');
+const allUnitsGrid = el('allUnitsGrid');
+const visBox = el('visualBox');
 
 // ─── Render Categories ───
 function renderTabs() {
@@ -171,6 +349,8 @@ function convert() {
     toVal.value = '';
     resultText.textContent = '';
     formulaBox.innerHTML = '';
+    allUnitsGrid.innerHTML = '';
+    visBox.innerHTML = '';
     return;
   }
 
@@ -188,20 +368,19 @@ function convert() {
   if (from.id === 'C' || from.id === 'F' || from.id === 'K') {
     formulaBox.innerHTML = `<span class="formula">Formula: ${getTempFormula(from.id, to.id)}</span>`;
   } else if (from.id !== to.id) {
-    const factor = cat.id === 'temperature' ? 1 : baseVal / val;
     formulaBox.innerHTML = `<span class="formula">1 ${from.name} = ${formatNum(Math.abs(result / val))} ${to.name}</span>`;
   } else {
     formulaBox.innerHTML = '';
   }
 
-  renderQuickTable(cat, from, to, val);
+  renderAllUnits(cat, baseVal);
+  renderVisuals(cat, from, baseVal, val);
 }
 
 function formatNum(n) {
   if (Math.abs(n) >= 1e12 || (Math.abs(n) < 1e-10 && n !== 0)) return n.toExponential(6);
   if (Number.isInteger(n) && Math.abs(n) < 1e15) return n.toString();
   const s = n.toPrecision(10);
-  // Remove trailing zeros
   return parseFloat(s).toString();
 }
 
@@ -217,14 +396,67 @@ function getTempFormula(from, to) {
   return pairs[`${from},${to}`] || '';
 }
 
-// ─── Quick Reference Table ───
-function renderQuickTable(cat, from, to, val) {
-  const baseVal = from.toBase(val);
+// ─── All Units Grid ───
+function renderAllUnits(cat, baseVal) {
   const rows = cat.units.map(u => {
     const converted = u.fromBase(baseVal);
-    return `<tr><td>${u.name}</td><td>${formatNum(converted)}</td></tr>`;
+    return `<div class="unit-card">
+      <span class="unit-card-value">${formatNum(converted)}</span>
+      <span class="unit-card-label">${u.name}</span>
+    </div>`;
   }).join('');
-  refTable.innerHTML = `<tr><th>Unit</th><th>Value</th></tr>${rows}`;
+  allUnitsGrid.innerHTML = rows;
+}
+
+// ─── Real-World Visualizations ───
+function renderVisuals(cat, fromUnitObj, baseVal, inputVal) {
+  const comparisons = REAL_WORLD[cat.id];
+  if (!comparisons) { visBox.innerHTML = ''; return; }
+
+  // Build up a map: unitId -> converted value in that unit
+  const converted = {};
+  cat.units.forEach(u => {
+    converted[u.id] = u.fromBase(baseVal);
+  });
+
+  // Find the closest comparison(s) — pick up to 3 that are closest to a converted value
+  const scores = [];
+  comparisons.forEach(cmp => {
+    const cmpVal = converted[cmp.unitId];
+    if (cmpVal === undefined || cmpVal === 0) return;
+    const ratio = cmpVal / cmp.atValue;
+    // Score: how close the ratio is to a nice round number, weighted by relevance
+    // Prefer comparisons where the ratio is between 0.5 and 5
+    const closeness = ratio >= 0.5 && ratio <= 5 ? 1 : 0.5 / Math.max(ratio, 1/ratio);
+    scores.push({ cmp, ratio, closeness, cmpVal });
+  });
+
+  // Sort by closeness, pick top 4
+  scores.sort((a, b) => b.closeness - a.closeness);
+  const top = scores.slice(0, 4);
+
+  if (top.length === 0) { visBox.innerHTML = ''; return; }
+
+  const cards = top.map(s => {
+    const count = Math.round(s.ratio);
+    const displayCount = count > 1 ? `×${count} ` : '';
+    return `<div class="vis-card">
+      <div class="vis-icon">${displayCount}${s.cmp.label.split(' ').pop() || '📦'}</div>
+      <div class="vis-label">≈ ${displayCount}${s.cmp.label}</div>
+      <div class="vis-hint">${formatNum(s.cmpVal)} = ${formatNum(s.cmp.atValue)} ${getUnitName(cat, s.cmp.unitId)} each</div>
+    </div>`;
+  }).join('');
+
+  visBox.innerHTML = `
+    <div class="vis-section">
+      <h3 class="vis-title">🔍 Real-World Comparison</h3>
+      <div class="vis-grid">${cards}</div>
+    </div>`;
+}
+
+function getUnitName(cat, unitId) {
+  const u = cat.units.find(x => x.id === unitId);
+  return u ? u.name : unitId;
 }
 
 // ─── Event Listeners ───
@@ -246,13 +478,6 @@ copyBtn.addEventListener('click', () => {
     copyBtn.textContent = '✅';
     setTimeout(() => { copyBtn.textContent = '📋'; }, 1500);
   });
-});
-
-// Keyboard shortcuts
-document.addEventListener('keydown', e => {
-  if (e.key === 'Tab' && !e.shiftKey) {
-    // Focus from value, or next input
-  }
 });
 
 // ─── Init ───
